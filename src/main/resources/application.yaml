@@ -1,0 +1,50 @@
+server:
+  port: 8802
+  error:
+    include-message: always
+mybatis-plus:
+  type-enums-package: com.qingfeng.henthouse.enum
+  type-aliases-package: com.qingfeng.henthouse.pojo
+  mapper-locations: classpath*:/mapper/**/*.xml
+  configuration:
+    log-impl:  org.apache.ibatis.logging.stdout.StdOutImpl
+  # id 自增长
+  global-config:
+    db-config:
+      id-type: auto
+#数据库连接
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/novel_struct?characterEncoding=utf-8&useSSL=false&serverTimezone=GMT%2B8
+  #文件上传大小设置
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 40MB
+      max-request-size: 40MB
+
+# 别名，枚举类，mapper
+
+
+updateImg:
+  userAvatar: /image/user/
+
+#日志配置 无特殊需求无需更改
+logging:
+  config:  classpath:log4j2.xml
+  level:
+    root: INFO
+    javax.activation: info
+    org.apache.catalina: INFO
+    org.apache.commons.beanutils.converters: INFO
+    org.apache.coyote.http11.Http11Processor: INFO
+    org.apache.http: INFO
+    org.apache.tomcat: INFO
+    org.springframework: INFO
+    com.chinamobile.cmss.bdpaas.resource.monitor: DEBUG
+
+
+

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qingfeng.henthouse.mapper.SysUserAuthorityMapper">
+  <resultMap id="BaseResultMap" type="com.qingfeng.henthouse.pojo.SysUserAuthority">
+    <!--@mbg.generated-->
+    <!--@Table sys_user_authority-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="authority_id" jdbcType="INTEGER" property="authorityId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, authority_id, user_id
+  </sql>
+</mapper>

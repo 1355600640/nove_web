@@ -1,0 +1,28 @@
+2023-10-22 17:37:25.796 | mainraceId | ERROR | 22884 | main | org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter.report(LoggingFailureAnalysisReporter.java:40) : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8802 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8802 or configure this application to listen on another port.
+
+2023-10-22 17:38:18.485 | mainraceId | ERROR | 11812 | main | org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter.report(LoggingFailureAnalysisReporter.java:40) : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8802 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8802 or configure this application to listen on another port.
+

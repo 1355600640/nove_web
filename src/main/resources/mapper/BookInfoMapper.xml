@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qingfeng.henthouse.mapper.BookInfoMapper">
+  <resultMap id="BaseResultMap" type="com.qingfeng.henthouse.pojo.BookInfo">
+    <!--@mbg.generated-->
+    <!--@Table book_info-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="work_direction" jdbcType="TINYINT" property="workDirection" />
+    <result column="category_id" jdbcType="BIGINT" property="categoryId" />
+    <result column="category_name" jdbcType="VARCHAR" property="categoryName" />
+    <result column="pic_url" jdbcType="VARCHAR" property="picUrl" />
+    <result column="book_name" jdbcType="VARCHAR" property="bookName" />
+    <result column="author_id" jdbcType="BIGINT" property="authorId" />
+    <result column="author_name" jdbcType="VARCHAR" property="authorName" />
+    <result column="book_desc" jdbcType="VARCHAR" property="bookDesc" />
+    <result column="score" jdbcType="TINYINT" property="score" />
+    <result column="book_status" jdbcType="TINYINT" property="bookStatus" />
+    <result column="visit_count" jdbcType="BIGINT" property="visitCount" />
+    <result column="word_count" jdbcType="INTEGER" property="wordCount" />
+    <result column="comment_count" jdbcType="INTEGER" property="commentCount" />
+    <result column="last_chapter_id" jdbcType="BIGINT" property="lastChapterId" />
+    <result column="last_chapter_name" jdbcType="VARCHAR" property="lastChapterName" />
+    <result column="last_chapter_update_time" jdbcType="TIMESTAMP" property="lastChapterUpdateTime" />
+    <result column="is_vip" jdbcType="TINYINT" property="isVip" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, work_direction, category_id, category_name, pic_url, book_name, author_id, author_name, 
+    book_desc, score, book_status, visit_count, word_count, comment_count, last_chapter_id, 
+    last_chapter_name, last_chapter_update_time, is_vip, create_time, update_time
+  </sql>
+
+  <select id="clickRanking" resultMap="BaseResultMap" parameterType="int">
+    SELECT * FROM book_info ORDER BY visit_count desc LIMIT #{num}
+    </select>
+
+  <select id="newBookRanking" resultMap="BaseResultMap" parameterType="int">
+      (SELECT * FROM book_info ORDER BY create_time LIMIT #{num}) ORDER BY visit_count
+  </select>
+
+  <select id="renewalRanking" resultMap="BaseResultMap" parameterType="int">
+    SELECT * FROM book_info ORDER BY update_time desc LIMIT #{num}
+  </select>
+  <select id="selectBookInfo" resultType="com.qingfeng.henthouse.Dto.BookInfoAddNumDto">
+    SELECT
+    bi.*,bc.chapter_num as num
+    FROM
+    book_info bi
+    INNER JOIN  book_chapter bc ON bi.last_chapter_id = bc.id
+    WHERE
+    bi.book_status = #{mode}
+    <if test="type!=''">and bi.category_id = #{type}</if>
+    ORDER BY
+    bi.update_time DESC LIMIT #{page}
+  </select>
+</mapper>

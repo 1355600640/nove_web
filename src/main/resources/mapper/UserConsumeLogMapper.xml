@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qingfeng.henthouse.mapper.UserConsumeLogMapper">
+  <resultMap id="BaseResultMap" type="com.qingfeng.henthouse.pojo.UserConsumeLog">
+    <!--@mbg.generated-->
+    <!--@Table user_consume_log-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="amount" jdbcType="INTEGER" property="amount" />
+    <result column="product_type" jdbcType="TINYINT" property="productType" />
+    <result column="product_id" jdbcType="BIGINT" property="productId" />
+    <result column="produc_name" jdbcType="VARCHAR" property="producName" />
+    <result column="produc_value" jdbcType="INTEGER" property="producValue" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, user_id, amount, product_type, product_id, produc_name, produc_value, create_time, 
+    update_time
+  </sql>
+</mapper>
